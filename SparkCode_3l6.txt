@@ -1,0 +1,6 @@
+val text = sc.textFile("file:///mnt/home/edureka_30310/sample.txt")
+var tokens = text.flatMap(s => s.split(" "))
+var tokens_1 = tokens.map(s => (s,1))
+var sum_each = tokens_1.reduceByKey((a, b) => a + b)
+sum_each.collect() 
+sum_each.saveAsTextFile("file:///mnt/home/edureka_30310/SparkResult")

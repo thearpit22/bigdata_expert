@@ -1,0 +1,4 @@
+register /opt/cloudera/parcels/CDH-5.11.1-1.cdh5.11.1.p0.4/jars/piggybank.jar;
+A = load 'input.txt' using PigStorage(',') as (f1:chararray, f2:chararray);
+B = foreach A generate org.apache.pig.piggybank.evaluation.string.UPPER(f1),f2;
+dump B
